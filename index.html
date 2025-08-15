@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fique Legal com o Meio Ambiente</title>
+    <!-- Adicionar fontes do Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="setup-screen" class="active">
+        <div class="setup-container">
+            <h1>Fique Legal com o Meio Ambiente</h1>
+            <div class="setup-content">
+                <div class="player-count">
+                    <h2>Número de jogadores:</h2>
+                    <div class="player-count-buttons">
+                        <button data-players="2">2</button>
+                        <button data-players="3">3</button>
+                        <button data-players="4">4</button>
+                    </div>
+                </div>
+                <div id="players-setup"></div>
+                <button id="start-game" disabled>Começar Jogo</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="game-container" class="hidden">
+        <canvas id="gameBoard"></canvas>
+        <div id="controls">
+            <div id="player-status">
+                <div id="currentPlayer"></div>
+                <div id="players-list"></div>
+            </div>
+            <div id="dice-control">
+                <div id="diceResult">Dado: -</div>
+                <button id="rollDice">🎲 Jogar Dado</button>
+            </div>
+        </div>
+        <div id="cardModal" class="modal">
+            <div class="modal-content">
+                <h2 id="cardTitle"></h2>
+                <p id="cardQuestion"></p>
+                <div id="cardOptions"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="victory-screen">
+        <div class="victory-container">
+            <div class="trophy-icon">🏆</div>
+            <h1 class="victory-title">Parabéns!</h1>
+            <div class="winner-info">
+                <h2 id="winner-name"></h2>
+                <p>Venceu o jogo!</p>
+            </div>
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-number" id="correct-answers">0</div>
+                    <div class="stat-label">Respostas Corretas</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="questions-answered">0</div>
+                    <div class="stat-label">Perguntas Respondidas</div>
+                </div>
+            </div>
+            <div class="victory-buttons">
+                <button class="play-again-btn" type="button" onclick="restartGame()">Jogar Novamente</button>
+                <button class="menu-btn" type="button" onclick="backToMenu()">Voltar ao Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <button id="helpButton" type="button" onclick="showCartilha()">?</button>
+    
+    <script src="cards.js"></script>
+    <script src="cartilha.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
